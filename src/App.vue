@@ -16,6 +16,7 @@
     </a>
   </div>
 
+<discount/>
   <div>
     <div v-for="(oneroom,i) in onerooms" :key = i>
       <img class="image" :src="oneroom.image"/>
@@ -24,13 +25,6 @@
     </div>
   </div>
 
-<!--  <div>
-    <div v-for="(oneroom,i) in onerooms" :key = i>
-      <img class="image" :src="oneroom.image"/>
-      <h3 @click="is_modal_open=true; item_i=i">{{oneroom.title}}</h3>
-      <p>{{oneroom.price}} 원</p>
-    </div>
-  </div>-->
 <!--  <div>
     <img class=image src="./assets/images/room0.jpg">
     <h3>{{onerooms[0].title}}</h3>
@@ -54,6 +48,7 @@
 
 <script>
 import onerooms from './assets/onerooom'
+import Discount from "@/components/Discount";
 
 export default {
   name: 'App',
@@ -81,6 +76,7 @@ export default {
     }
   },
   components: {
+    Discount : Discount,
   }
 }
 </script>
@@ -100,6 +96,7 @@ body{
 div{
   box-sizing: border-box;
 }
+
 
 .black-bg{
   width: 100%; height: 100%;
@@ -125,6 +122,7 @@ div{
   padding: 20px;
   font-size: 20px;
 }
+
 
 .image{
   width: 100%;

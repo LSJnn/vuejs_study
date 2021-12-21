@@ -8,3 +8,9 @@
    import 새로운 변수명 from 파일경로
    / export {변수,변수}
    import {변수명}
+
+3. Component  : 공통요소 공유
+    Components 내에 파일 생성
+    import
+    component 등록
+    사용
