@@ -24,25 +24,26 @@
   </div>-->
   <div>
     <img class=image src="./assets/images/room0.jpg">
-    <h3>{{products[0]}}</h3>
-    <p>{{price[0]}}</p>
+    <h3>{{onerooms[0].title}}</h3>
+    <p>{{onerooms[0].price}}</p>
     <button @click="clickBTN">허위매물 신고 버튼</button>
   </div>
   <div>
     <img class=image src="./assets/images/room1.jpg">
-    <h3>{{products[1]}}</h3>
-    <p>{{price[1]}}</p>
+    <h3>{{onerooms[1].title}}</h3>
+    <p>{{onerooms[1].price}}</p>
     <button @click="clickBTN">허위매물 신고 버튼</button>
   </div>
   <div>
     <img class=image src="./assets/images/room2.jpg">
-    <h3>{{products[2]}}</h3>
-    <p>{{price[2]}}</p>
+    <h3>{{onerooms[0].title}}</h3>
+    <p>{{onerooms[2].price}}</p>
     <button>허위매물 신고 버튼</button>
   </div>
 </template>
 
 <script>
+import onerooms from './assets/onerooom'
 
 export default {
   name: 'App',
@@ -52,6 +53,7 @@ export default {
       price2 : 70,
       menus : ["Home", "Shop", "About"],
       products : ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
+      onerooms: onerooms,
       price : [40,60,30],
       click_cnt: [0,0,0],
       is_modal_open:false,
