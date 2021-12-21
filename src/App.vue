@@ -7,15 +7,15 @@
     </a>
   </div>
 
-<!--  <div>
+  <div>
     <div v-for="(product,i) in products" :key = i>
       <h3>{{product}}</h3>
       <p>{{price[i]}}</p>
-      <button>허위매물 신고 버튼 : {{cnt}}</button>
+      <button @click="clickBTN(i)">허위매물 신고 버튼 : {{click_cnt[i]}}</button>
     </div>
-  </div>-->
+  </div>
 
-  <div>
+<!--  <div>
     <h3>{{products[0]}}</h3>
     <p>{{price[0]}}</p>
     <button @click="click_cnt++">허위매물 신고 버튼</button>
@@ -30,7 +30,7 @@
     <h3>{{products[2]}}</h3>
     <p>{{price[2]}}</p>
     <button>허위매물 신고 버튼</button>
-  </div>
+  </div>-->
 
 </template>
 
@@ -45,12 +45,12 @@ export default {
       menus : ["Home", "Shop", "About"],
       products : ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
       price : [40,60,30],
-      click_cnt: 0,
+      click_cnt: [0,0,0],
     }
   },
   methods : {
-    clickBTN(){
-      this.click_cnt++;
+    clickBTN(i){
+      this.click_cnt[i]++;
     }
   },
   components: {
