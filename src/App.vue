@@ -16,17 +16,18 @@
   </div>-->
 
   <div>
-    <h3>{{product[0]}}</h3>
+    <h3>{{products[0]}}</h3>
     <p>{{price[0]}}</p>
-    <button>허위매물 신고 버튼</button>
+    <button @click="click_cnt++">허위매물 신고 버튼</button>
+    <div>{{click_cnt}}</div>
   </div>
   <div>
-    <h3>{{product[1]}}</h3>
+    <h3>{{products[1]}}</h3>
     <p>{{price[1]}}</p>
-    <button>허위매물 신고 버튼</button>
+    <button @click="clickBTN">허위매물 신고 버튼</button>
   </div>
   <div>
-    <h3>{{product[2]}}</h3>
+    <h3>{{products[2]}}</h3>
     <p>{{price[2]}}</p>
     <button>허위매물 신고 버튼</button>
   </div>
@@ -44,6 +45,12 @@ export default {
       menus : ["Home", "Shop", "About"],
       products : ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
       price : [40,60,30],
+      click_cnt: 0,
+    }
+  },
+  methods : {
+    clickBTN(){
+      this.click_cnt++;
     }
   },
   components: {
