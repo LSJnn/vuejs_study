@@ -1,4 +1,12 @@
 <template>
+  <div v-if="is_modal_open" class="black-bg">
+    <div class="white-bg">
+      <h4>상품 상세내용</h4>
+      <p>상품 상세내용이ㅂ니다.</p>
+      <button @click="clickReverse">닫기</button>
+    </div>
+  </div>
+
   <img alt="Vue logo" src="./assets/logo.png">
 
   <div class="menu">
@@ -7,31 +15,31 @@
     </a>
   </div>
 
-  <div>
+<!--  <div>
     <div v-for="(product,i) in products" :key = i>
+
       <h3>{{product}}</h3>
       <p>{{price[i]}}</p>
-      <button @click="clickBTN(i)">허위매물 신고 버튼 : {{click_cnt[i]}}</button>
     </div>
-  </div>
-
-<!--  <div>
+  </div>-->
+  <div>
+    <img class=image src="./assets/images/room0.jpg">
     <h3>{{products[0]}}</h3>
     <p>{{price[0]}}</p>
-    <button @click="click_cnt++">허위매물 신고 버튼</button>
-    <div>{{click_cnt}}</div>
+    <button @click="clickBTN">허위매물 신고 버튼</button>
   </div>
   <div>
+    <img class=image src="./assets/images/room1.jpg">
     <h3>{{products[1]}}</h3>
     <p>{{price[1]}}</p>
     <button @click="clickBTN">허위매물 신고 버튼</button>
   </div>
   <div>
+    <img class=image src="./assets/images/room2.jpg">
     <h3>{{products[2]}}</h3>
     <p>{{price[2]}}</p>
     <button>허위매물 신고 버튼</button>
-  </div>-->
-
+  </div>
 </template>
 
 <script>
@@ -46,11 +54,15 @@ export default {
       products : ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
       price : [40,60,30],
       click_cnt: [0,0,0],
+      is_modal_open:false,
     }
   },
   methods : {
-    clickBTN(i){
-      this.click_cnt[i]++;
+    clickBTN(){
+      this.is_modal_open=true;
+    },
+    clickReverse(){
+      this.is_modal_open=!this.is_modal_open;
     }
   },
   components: {
@@ -65,7 +77,26 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
+}
+body{
+  margin: 0;
+}
+div{
+  box-sizing: border-box;
+}
+
+.black-bg{
+  width: 100%; height: 100%;
+  position: fixed; padding: 20px;
+  background: rgba(0,0,0,0.5);
+
+}
+.white-bg{
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
 }
 
 .menu {
@@ -79,4 +110,10 @@ export default {
   padding: 20px;
   font-size: 20px;
 }
+
+.image{
+  width: 100%;
+  margin-top: 40px;
+}
+
 </style>
