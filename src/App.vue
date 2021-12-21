@@ -1,8 +1,9 @@
 <template>
   <div v-if="is_modal_open" class="black-bg">
     <div class="white-bg">
-      <h4>상품 상세내용</h4>
-      <p>상품 상세내용이ㅂ니다.</p>
+      <img class="image" :src="onerooms[item_i].image"/>
+      <h4>{{onerooms[item_i].title}}</h4>
+      <p>{{onerooms[item_i].content}}</p>
       <button @click="clickReverse">닫기</button>
     </div>
   </div>
@@ -15,14 +16,22 @@
     </a>
   </div>
 
-<!--  <div>
-    <div v-for="(product,i) in products" :key = i>
+  <div>
+    <div v-for="(oneroom,i) in onerooms" :key = i>
+      <img class="image" :src="oneroom.image"/>
+      <h3 @click="clickReverse(i)">{{oneroom.title}}</h3>
+      <p>{{oneroom.price}} 원</p>
+    </div>
+  </div>
 
-      <h3>{{product}}</h3>
-      <p>{{price[i]}}</p>
+<!--  <div>
+    <div v-for="(oneroom,i) in onerooms" :key = i>
+      <img class="image" :src="oneroom.image"/>
+      <h3 @click="is_modal_open=true; item_i=i">{{oneroom.title}}</h3>
+      <p>{{oneroom.price}} 원</p>
     </div>
   </div>-->
-  <div>
+<!--  <div>
     <img class=image src="./assets/images/room0.jpg">
     <h3>{{onerooms[0].title}}</h3>
     <p>{{onerooms[0].price}}</p>
@@ -39,7 +48,8 @@
     <h3>{{onerooms[0].title}}</h3>
     <p>{{onerooms[2].price}}</p>
     <button>허위매물 신고 버튼</button>
-  </div>
+  </div>-->
+
 </template>
 
 <script>
@@ -57,14 +67,17 @@ export default {
       price : [40,60,30],
       click_cnt: [0,0,0],
       is_modal_open:false,
+      item_i:0,
     }
   },
   methods : {
-    clickBTN(){
+    clickBTN(i){
       this.is_modal_open=true;
+      this.item_i=i;
     },
-    clickReverse(){
+    clickReverse(i){
       this.is_modal_open=!this.is_modal_open;
+      this.item_i=i;
     }
   },
   components: {
