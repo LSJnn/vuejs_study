@@ -1,12 +1,7 @@
 <template>
-  <div v-if="is_modal_open" class="black-bg">
-    <div class="white-bg">
-      <img class="image" :src="onerooms[item_i].image"/>
-      <h4>{{onerooms[item_i].title}}</h4>
-      <p>{{onerooms[item_i].content}}</p>
-      <button @click="clickReverse">닫기</button>
-    </div>
-  </div>
+
+<Modal :onerooms = "onerooms" :is_modal_open="is_modal_open" :item_i="item_i">
+</Modal>
 
   <img alt="Vue logo" src="./assets/logo.png">
 
@@ -20,7 +15,7 @@
   <div>
     <div v-for="(oneroom,i) in onerooms" :key = i>
       <img class="image" :src="oneroom.image"/>
-      <h3 @click="clickReverse(i)">{{oneroom.title}}</h3>
+      <h3 @click="clickBTN(i)">{{oneroom.title}}</h3>
       <p>{{oneroom.price}} 원</p>
     </div>
   </div>
@@ -49,6 +44,7 @@
 <script>
 import onerooms from './assets/onerooom'
 import Discount from "@/components/Discount";
+import Modal from "@/components/Modal";
 
 export default {
   name: 'App',
@@ -70,12 +66,9 @@ export default {
       this.is_modal_open=true;
       this.item_i=i;
     },
-    clickReverse(i){
-      this.is_modal_open=!this.is_modal_open;
-      this.item_i=i;
-    }
   },
   components: {
+    Modal : Modal,
     Discount : Discount,
   }
 }

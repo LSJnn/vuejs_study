@@ -14,3 +14,9 @@
     import
     component 등록
     사용
+
+    -Component Data 바인딩하는 경우 [props]문법
+        :부모 자식 요소간 데이터 전송 ㅣ props 문법
+        data 전송 <Component사용태그 내 :props이름 ="변수"/>
+        data등록  /*props 이름 : 데이터 형식*/
+        data 쓰기 ;>ReadOnly임. Component 내에서 수정 불가.
