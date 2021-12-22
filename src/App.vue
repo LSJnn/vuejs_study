@@ -1,13 +1,16 @@
 <template>
-
-<Modal @modalClose="is_modal_open=false" :onerooms = "onerooms" :is_modal_open="is_modal_open" :item_i="item_i">
-<!-- 데이터 하드코딩 입력 가능
-    변수명 ="문자"
-    :변수명 = 숫자
-    :변수명 = "리스트.속성" :변수명2="리스트.속성2" 는 V-bind="리스트변수 이름" (리스트내 각각 할당)
-    -->
-</Modal>
-
+<!-- 클래스명 넣을 때 object 형식으로 넣음 = trye 일떄만. -->
+<!--  <div class="start" :class="{end : is_modal_open==true}">-->
+<transition name="fade">
+    <Modal @modalClose="is_modal_open=false" :onerooms = "onerooms" :is_modal_open="is_modal_open" :item_i="item_i">
+    <!-- 데이터 하드코딩 입력 가능
+        변수명 ="문자"
+        :변수명 = 숫자
+        :변수명 = "리스트.속성" :변수명2="리스트.속성2" 는 V-bind="리스트변수 이름" (리스트내 각각 할당)
+        -->
+    </Modal>
+</transition>
+<!--  </div>-->
   <img alt="Vue logo" src="./assets/logo.png">
 
   <div class="menu">
@@ -16,10 +19,10 @@
     </a>
   </div>
 
-<discount/>
-<!--  <div v-for="(oneroom,i) in onerooms" :key="i">
-    <Card :oneroom="onerooms[i]"/>
-  </div>-->
+  <discount/>
+  <!--  <div v-for="(oneroom,i) in onerooms" :key="i">
+      <Card :oneroom="onerooms[i]"/>
+    </div>-->
 
   <Card @openModal="is_modal_open=true; item_i=i" :oneroom="onerooms[i]" v-for="i in onerooms.length-1" :key="i"/>
 <!--  <div>
@@ -73,6 +76,29 @@ export default {
 </script>
 
 <style>
+/*입장 시*/
+.fade-enter-from{
+  /*시작 스타일*/
+  transform: translateY(-1000px);
+}
+.fade-enter-active{
+  transition: all 1s;
+}
+.fade-enter-to{
+  /*끝 스타일*/
+  transform: translateY(0px);
+}
+/*퇴장 시*/
+.fade-leave-from{
+  opacity: 1;
+}
+.fade-leave-active{
+  transition: all 1s;
+}
+.fade-leave-to{
+  opacity:0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -98,5 +124,13 @@ div{
   color: white;
   padding: 20px;
   font-size: 20px;
+}
+.start{
+  opacity: 0;
+  /*모든 속성이 변할 떄 1초에 걸쳐 변경*/
+  transition: all 1s;
+}
+.end{
+  opacity: 1;
 }
 </style>

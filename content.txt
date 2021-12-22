@@ -46,3 +46,12 @@
 
     #변수명(변경 후 값, 변경 전 값)
     #유용한 라이브러리 :vue 전용 form validation 있음.
+
+7. css 애니메이션
+    1) class 2개 사용: <div :class="start end">
+    2) transition 태그 및 클래스명 지정
+        1. transition으로 부분 감싸기
+        2. 클래스명-enter/leave-from
+           클래스명-enter/leave-active : transition:all 1s;
+           클래스명-enter/leave-to
+        작성
