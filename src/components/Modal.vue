@@ -43,5 +43,8 @@ export default {
   border-radius: 8px;
   padding: 20px;
 }
+.image{
+  width: 100%;
+}
 
 </style>
