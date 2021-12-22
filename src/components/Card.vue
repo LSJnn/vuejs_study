@@ -2,7 +2,7 @@
 <!-- 반복문 없이 가능. -> ? component는 반복 없애기 위한. -->
   <div>
     <img class=image :src="oneroom.image"/>
-    <h4>{{oneroom.title}}</h4>
+    <h4 >{{oneroom.title}}</h4>
     <p>{{oneroom.price}} 원</p>
   </div>
 </template>
@@ -14,10 +14,10 @@ export default {
   data() {
     return {
       item_i:0,
-      isOpen: false,
     }
   },
   props :{
+  /*수정불가*/
     oneroom : Object,
   },
   methods:{

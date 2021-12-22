@@ -1,10 +1,10 @@
 <template>
-  <div v-if="isOpen===true" class="black-bg">
+  <div v-if="is_modal_open===true" class="black-bg">
     <div class="white-bg">
       <img class="image" :src="onerooms[item_i].image"/>
       <h4>{{onerooms[item_i].title}}</h4>
       <p>{{onerooms[item_i].content}}</p>
-     <button @click="clickReverse">닫기</button>
+<!--     <button @click="clickReverse">닫기</button>-->
     </div>
   </div>
 </template>
@@ -16,18 +16,14 @@ export default {
   props: {
     /*props 이름 : 데이터 형식*/
     onerooms : Array,
-    is_modal_open : Boolean,
     item_i : Number,
+    is_modal_open: Boolean,
   },
   data(){
     return {
-      isOpen : this.is_modal_open,
     }
   },
   methods :{
-    clickReverse(){
-      this.isOpen=!this.isOpen;
-    }
   }
 
 }

@@ -21,7 +21,7 @@
     <Card :oneroom="onerooms[i]"/>
   </div>-->
 
-  <Card :oneroom="onerooms[i]" v-for="i in onerooms.length" :key="i"/>
+  <Card @click="is_modal_open=true" :oneroom="onerooms[i]" v-for="i in onerooms.length-1" :key="i"/>
 <!--  <div>
     <img class=image src="./assets/images/room0.jpg">
     <h3>{{onerooms[0].title}}</h3>
