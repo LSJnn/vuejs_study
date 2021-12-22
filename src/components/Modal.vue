@@ -4,6 +4,9 @@
       <img class="image" :src="onerooms[item_i].image"/>
       <h4>{{onerooms[item_i].title}}</h4>
       <p>{{onerooms[item_i].content}}</p>
+      <p><input v-model="month" ></p>
+      <p>사용자가 {{month}} 개월을 선택함 :  개월 </p>
+      <p>{{month*onerooms[item_i].price}} 원</p>
      <button @click="$emit('modalClose')">닫기</button>
     </div>
   </div>
@@ -21,6 +24,7 @@ export default {
   },
   data(){
     return {
+      month:1,
     }
   },
   methods :{

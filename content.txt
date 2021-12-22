@@ -27,3 +27,15 @@
         -> 부모요소에서 @플래그명="동작"
     3) $emit('플래그명',전달 값(event))으로 제어
         -> 부모요소에서 @플래그명="동작;변경할변수명=event" 로 제어//
+
+5. input 데이터 할당 방식
+    1) event 사용
+        <input @input="(변수명)=$event.target.value"/>
+    2) v-model 사용
+        <input v-model="(변수명)"/>
+
+    #input 종류
+        - input
+            type지정 가능
+        - textarea
+        - select / option
