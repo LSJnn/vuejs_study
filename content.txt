@@ -39,3 +39,9 @@
             type지정 가능
         - textarea
         - select / option
+6. watcher
+    : 데이터 변경 감지
+    1. <script>에 watch :{} 추가
+    2. 변수명(){ 데이터 제어 }로 사용.
+
+    #변수명(변경 후 값, 변경 전 값)
