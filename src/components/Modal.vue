@@ -4,7 +4,7 @@
       <img class="image" :src="onerooms[item_i].image"/>
       <h4>{{onerooms[item_i].title}}</h4>
       <p>{{onerooms[item_i].content}}</p>
-<!--     <button @click="clickReverse">닫기</button>-->
+     <button @click="$emit('modalClose')">닫기</button>
     </div>
   </div>
 </template>

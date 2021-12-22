@@ -1,6 +1,6 @@
 <template>
 
-<Modal :onerooms = "onerooms" :is_modal_open="is_modal_open" :item_i="item_i">
+<Modal @modalClose="is_modal_open=false" :onerooms = "onerooms" :is_modal_open="is_modal_open" :item_i="item_i">
 <!-- 데이터 하드코딩 입력 가능
     변수명 ="문자"
     :변수명 = 숫자
@@ -21,7 +21,7 @@
     <Card :oneroom="onerooms[i]"/>
   </div>-->
 
-  <Card @openModal="is_modal_open=true; item_i=$event" :oneroom="onerooms[i]" v-for="i in onerooms.length-1" :key="i"/>
+  <Card @openModal="is_modal_open=true; item_i=i" :oneroom="onerooms[i]" v-for="i in onerooms.length-1" :key="i"/>
 <!--  <div>
     <img class=image src="./assets/images/room0.jpg">
     <h3>{{onerooms[0].title}}</h3>
