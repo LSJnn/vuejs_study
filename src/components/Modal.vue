@@ -4,7 +4,9 @@
       <img class="image" :src="onerooms[item_i].image"/>
       <h4>{{onerooms[item_i].title}}</h4>
       <p>{{onerooms[item_i].content}}</p>
-      <p><input type="number" v-model="month" /></p>
+      <p><input v-model="month" /></p>
+      <!--      <p><input type="number" v-model="month" /></p>-->
+<!--      <p><input type="number" min="1" max="12" step="1" v-model="month" /></p>-->
       <p>사용자가 {{month}} 개월을 선택함</p>
       <p>{{month*onerooms[item_i].price}} 원</p>
      <button @click="$emit('modalClose')">닫기</button>
@@ -29,11 +31,16 @@ export default {
   },
   watch :{
     /*month 변수의 데이터 변할때마다 watcher 실행됨.*/
-    month(a,b){
+    month(a){
       if(a>13){
         alert('13초과 입력 불가');
-        this.month=b;
-
+        a=1;
+        this.month=1;
+      }
+      if(isNaN(a)==true){
+        alert('숫자만 입력해주세요');
+        a=1;
+        this.month=1;
       }
     }
   },
