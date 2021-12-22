@@ -1,6 +1,11 @@
 <template>
 
 <Modal :onerooms = "onerooms" :is_modal_open="is_modal_open" :item_i="item_i">
+<!-- 데이터 하드코딩 입력 가능
+    변수명 ="문자"
+    :변수명 = 숫자
+    :변수명 = "리스트.속성" :변수명2="리스트.속성2" 는 V-bind="리스트변수 이름" (리스트내 각각 할당)
+    -->
 </Modal>
 
   <img alt="Vue logo" src="./assets/logo.png">
@@ -12,13 +17,15 @@
   </div>
 
 <discount/>
-  <div>
-    <div v-for="(oneroom,i) in onerooms" :key = i>
-      <img class="image" :src="oneroom.image"/>
-      <h3 @click="clickBTN(i)">{{oneroom.title}}</h3>
-      <p>{{oneroom.price}} 원</p>
-    </div>
-  </div>
+<!--  <div v-for="(oneroom,i) in onerooms" :key="i">
+  <Card :oneroomIndex="i"/>
+  </div>-->
+  <Card :oneroom="onerooms[0]"/>
+  <Card :oneroom="onerooms[1]"/>
+  <Card :oneroom="onerooms[2]"/>
+  <Card :oneroom="onerooms[3]"/>
+  <Card :oneroom="onerooms[4]"/>
+  <Card :oneroom="onerooms[5]"/>
 
 <!--  <div>
     <img class=image src="./assets/images/room0.jpg">
@@ -45,6 +52,7 @@
 import onerooms from './assets/onerooom'
 import Discount from "@/components/Discount";
 import Modal from "@/components/Modal";
+import Card from "@/components/Card";
 
 export default {
   name: 'App',
@@ -61,15 +69,10 @@ export default {
       item_i:0,
     }
   },
-  methods : {
-    clickBTN(i){
-      this.is_modal_open=true;
-      this.item_i=i;
-    },
-  },
   components: {
     Modal : Modal,
     Discount : Discount,
+    Card : Card,
   }
 }
 </script>
@@ -90,20 +93,6 @@ div{
   box-sizing: border-box;
 }
 
-
-.black-bg{
-  width: 100%; height: 100%;
-  position: fixed; padding: 20px;
-  background: rgba(0,0,0,0.5);
-
-}
-.white-bg{
-  width: 100%;
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-}
-
 .menu {
   background-color: darkslateblue;
   padding: 15px;
@@ -115,11 +104,4 @@ div{
   padding: 20px;
   font-size: 20px;
 }
-
-
-.image{
-  width: 100%;
-  margin-top: 40px;
-}
-
 </style>
