@@ -18,15 +18,10 @@
 
 <discount/>
 <!--  <div v-for="(oneroom,i) in onerooms" :key="i">
-  <Card :oneroomIndex="i"/>
+    <Card :oneroom="onerooms[i]"/>
   </div>-->
-  <Card :oneroom="onerooms[0]"/>
-  <Card :oneroom="onerooms[1]"/>
-  <Card :oneroom="onerooms[2]"/>
-  <Card :oneroom="onerooms[3]"/>
-  <Card :oneroom="onerooms[4]"/>
-  <Card :oneroom="onerooms[5]"/>
 
+  <Card :oneroom="onerooms[i]" v-for="i in onerooms.length" :key="i"/>
 <!--  <div>
     <img class=image src="./assets/images/room0.jpg">
     <h3>{{onerooms[0].title}}</h3>
