@@ -55,3 +55,21 @@
            클래스명-enter/leave-active : transition:all 1s;
            클래스명-enter/leave-to
         작성
+
+8. 정렬
+  var array = [3,4,5];
+  array.sort : 문자 정렬
+  숫자 정렬 :
+  array.sort(function(a,b){
+    return a-b;
+  });
+ sort : a,b 는 배열 내 원소들  - 일경우 오른쪽, +일 경우 왼쪽으로 정렬하는 알고리즘.
+
+9.[...변수명]
+ : 변수 공유하고 싶지 않을 때 사용.
+ SPA 에서는 데이터를 A=B 로 선언할 경우, 공유됨.
+ A에서 SORT 하면 B도 SORT가 됨.
+ -> 원본 데이터를 보존하지 못한다.
+ => 원본 데이터 보존을 위해
+    A= [1,2,3,4]
+    B= [...A] 를 사용하여

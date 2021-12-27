@@ -24,9 +24,11 @@
       <Card :oneroom="onerooms[i]"/>
     </div>-->
   <button @click="priceSort">가격순정렬</button>
-
-  <button @click="priceSor_ㄱt">가격원상복귀</button>
-  <Card @openModal="is_modal_open=true; item_i=i" :oneroom="onerooms[i]" v-for="(oneroom,i) in onerooms.length-1" :key="i"/>>
+  <button @click="priceSort_re">가격순 역정렬</button>
+  <button @click="priceSort_name">이름순 정렬</button>
+  <button @click="priceSort_back">되돌리기</button>
+  <button @click="priceSort_filter">필터</button>
+  <Card @openModal="is_modal_open=true" :item_i="i" :oneroom="array[i]" v-for="(oneroom,i) in array" :key="i"/>>
 <!--  <di>
     <img class=image src="./assets/images/room0.jpg">
     <h3>{{onerooms[0].title}}</h3>
@@ -62,7 +64,9 @@ export default {
       price2 : 70,
       menus : ["Home", "Shop", "About"],
       products : ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
+      array:onerooms,
       onerooms: onerooms,
+      o_onerooms:[...onerooms],
       price : [40,60,30],
       click_cnt: [0,0,0],
       is_modal_open:false,
@@ -74,14 +78,34 @@ export default {
       this.onerooms.sort(function (a,b){
         return a.price - b.price;
       });
-      /*var array = [3,4,5];*/
-      /*array.sort : 문자 정렬*/
-      /*숫자 정렬 :
-      array.sort(function(a,b){
-        return a-b;
-      });*/
+      this.array=this.onerooms;
     },
+    priceSort_re() {
+      this.onerooms.sort(function (a, b) {
+        return b.price - a.price;
+      });
+      this.array=this.onerooms;
+    },
+    priceSort_name() {
+      this.onerooms.sort(function(a,b){
+        return a.title.localeCompare((b.title));
+      });
+      this.array=this.onerooms;
+    },
+    priceSort_back() {
+      return this.array=this.o_onerooms;
+    },
+    priceSort_filter(){
+      var newarr = new Array();
+      for(var i of this.array){
+        if(i.price>500000){
+          newarr.push(i);
+        }
+        this.array=newarr;
+      }
+    }
   },
+
   components: {
     Modal : Modal,
     Discount : Discount,
