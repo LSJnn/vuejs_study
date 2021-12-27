@@ -45,6 +45,9 @@ export default {
     }
   },
   methods :{
+  },
+  updated() {
+    if (this.month==2)alert(this.month);
   }
 
 }

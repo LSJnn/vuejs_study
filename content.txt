@@ -75,6 +75,7 @@
     B= [...A] 를 사용하여
 
 10. 라이프사이클
- create-> mount(html->웹구성)-> 컴포넌트 생성 -[index.html]-> update(dat 변경할 경우 컴포넌트가 재렌더링됨)
+ create-> mount(html->웹구성)-> 컴포넌트 생성 -[index.html]-> update(data 변경할 경우 컴포넌트가 재렌더링됨)
  -> unmount (컴포넌트 삭제)
     => lifecycle hook 사용
+    setInterval/setTimeout

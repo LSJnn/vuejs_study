@@ -20,8 +20,7 @@ export default {
     oneroom : Object,
   },
   methods:{
-
-  }
+  },
 }
 </script>
 
