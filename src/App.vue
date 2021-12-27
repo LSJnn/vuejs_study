@@ -19,7 +19,7 @@
     </a>
   </div>
 
-  <discount/>
+  <discount v-if="showDiscount == true"/>
   <!--  <div v-for="(oneroom,i) in onerooms" :key="i">
       <Card :oneroom="onerooms[i]"/>
     </div>-->
@@ -60,6 +60,7 @@ export default {
   name: 'App',
   data(){
     return{
+      showDiscount:true,
       price1 : 60,
       price2 : 70,
       menus : ["Home", "Shop", "About"],
@@ -105,7 +106,19 @@ export default {
       }
     }
   },
+  created(){
+    //html 생성 전. mount만 할때 : 서버에서 created/mounted에서 ajax로 데이터 가져옴.
+  },
 
+  mounted(){
+    //마운트 후.
+    //fubction -> ()=> 로 왜?? this.로 변수 가져올 때 에러 방지
+    setTimeout( ()=>{
+      this.showDiscount=false;
+    },2000)
+  },
+  beforeMount() { //등등
+  },
   components: {
     Modal : Modal,
     Discount : Discount,
